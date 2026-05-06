@@ -1,0 +1,103 @@
+{
+  "site": {
+    "title": "The AI Co-Scientist Typology",
+    "tagline": "Nine cards \u00b7 initiative \u00d7 scope \u00b7 find the kind of AI agent that fits how you work",
+    "survey_url": "https://columbia.qualtrics.com/jfe/form/SV_PLACEHOLDER",
+    "github_repo_url": "https://github.com/USERNAME/REPO",
+    "author": "Wang \u00b7 Columbia DBMI"
+  },
+  "distribution": {
+    "1": 1,
+    "2": 2,
+    "3": 0,
+    "4": 0,
+    "5": 1,
+    "6": 5,
+    "7": 0,
+    "8": 0,
+    "9": 0
+  },
+  "cards": [
+    {
+      "id": 1,
+      "slug": "magician",
+      "name": "The Magician of the Compass",
+      "role": "Lapidary",
+      "scope": "narrow function",
+      "initiative": "user-initiated",
+      "url": "magician.html"
+    },
+    {
+      "id": 2,
+      "slug": "temperance",
+      "name": "Temperance of the Sundial",
+      "role": "Adjuster",
+      "scope": "narrow function",
+      "initiative": "mixed-initiated",
+      "url": "temperance.html"
+    },
+    {
+      "id": 3,
+      "slug": "justice",
+      "name": "Justice of the Plumb-Line",
+      "role": "Inspector",
+      "scope": "narrow function",
+      "initiative": "system-initiated",
+      "url": "justice.html"
+    },
+    {
+      "id": 4,
+      "slug": "empress",
+      "name": "The Empress of the Alembic",
+      "role": "Drafter",
+      "scope": "broad function",
+      "initiative": "user-initiated",
+      "url": "empress.html"
+    },
+    {
+      "id": 5,
+      "slug": "lovers",
+      "name": "The Lovers of the Astrolabe",
+      "role": "Collaborator",
+      "scope": "broad function",
+      "initiative": "mixed-initiated",
+      "url": "lovers.html"
+    },
+    {
+      "id": 6,
+      "slug": "wheel",
+      "name": "The Wheel of the Orrery",
+      "role": "Conductor",
+      "scope": "broad function",
+      "initiative": "system-initiated",
+      "url": "wheel.html"
+    },
+    {
+      "id": 7,
+      "slug": "fool",
+      "name": "The Fool of the Sextant",
+      "role": "Deputy",
+      "scope": "whole task",
+      "initiative": "user-initiated",
+      "url": "fool.html"
+    },
+    {
+      "id": 8,
+      "slug": "priestess",
+      "name": "The High Priestess of the Microscope",
+      "role": "Co-Investigator",
+      "scope": "whole task",
+      "initiative": "mixed-initiated",
+      "url": "priestess.html"
+    },
+    {
+      "id": 9,
+      "slug": "hermit",
+      "name": "The Hermit of the Telescope",
+      "role": "Successor",
+      "scope": "whole task",
+      "initiative": "system-initiated",
+      "url": "hermit.html"
+    }
+  ]
+}

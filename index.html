@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>The AI Co-Scientist Typology</title>
+<meta name="description" content="Nine cards · initiative × scope · find the kind of AI agent that fits how you work" />
+<meta property="og:title" content="The AI Co-Scientist Typology" />
+<meta property="og:description" content="Nine cards · initiative × scope · find the kind of AI agent that fits how you work" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="container">
+  <nav class="topnav">
+    <span class="brand">The AI Co-Scientist Typology</span>
+    <span class="links">
+      <a href="https://columbia.qualtrics.com/jfe/form/SV_PLACEHOLDER">take the survey</a>
+      <a href="https://github.com/USERNAME/REPO">source</a>
+    </span>
+  </nav>
+
+  <h1>Nine cards for the AI co-scientist</h1>
+  <p class="index-intro">Nine cards · initiative × scope · find the kind of AI agent that fits how you work</p>
+
+  <p>The grid below has three rows (the <em>scope</em> of work the AI handles) and three columns (the <em>initiative</em> the AI takes). Each cell is one type of AI agent for data-science research, mapped to a Tarot archetype and a scientific instrument from the natural-philosophy tradition. Click any card to read its description.</p>
+
+  <p>Red badges show how many of the n=9 pilot respondents are routed to that card based on their survey responses. The routing logic is described under each card's <em>How you got here</em> section.</p>
+
+  <table class="grid-table" style="margin: 30px 0;">
+    <tr>
+      <td></td>
+      <td class="col-head">User initiated</td>
+      <td class="col-head">Mixed initiated</td>
+      <td class="col-head">System initiated</td>
+    </tr>
+<tr><td class="row-head">Narrow</td>
+<td><a class="grid-cell" href="magician.html" title="Lapidary"><img src="cards/card_01_magician.png" alt="The Magician of the Compass" /><span class="label"><span class="role">Lapidary</span><br/>I · The Magician of the Compass</span><span class="badge-mini">1</span></a></td>
+<td><a class="grid-cell" href="temperance.html" title="Adjuster"><img src="cards/card_02_temperance.png" alt="Temperance of the Sundial" /><span class="label"><span class="role">Adjuster</span><br/>II · Temperance of the Sundial</span><span class="badge-mini">2</span></a></td>
+<td><a class="grid-cell" href="justice.html" title="Inspector"><img src="cards/card_03_justice.png" alt="Justice of the Plumb-Line" /><span class="label"><span class="role">Inspector</span><br/>III · Justice of the Plumb-Line</span></a></td>
+</tr>
+<tr><td class="row-head">Broad</td>
+<td><a class="grid-cell" href="empress.html" title="Drafter"><img src="cards/card_04_empress.png" alt="The Empress of the Alembic" /><span class="label"><span class="role">Drafter</span><br/>IV · The Empress of the Alembic</span></a></td>
+<td><a class="grid-cell" href="lovers.html" title="Collaborator"><img src="cards/card_05_lovers.png" alt="The Lovers of the Astrolabe" /><span class="label"><span class="role">Collaborator</span><br/>V · The Lovers of the Astrolabe</span><span class="badge-mini">1</span></a></td>
+<td><a class="grid-cell" href="wheel.html" title="Conductor"><img src="cards/card_06_wheels.png" alt="The Wheel of the Orrery" /><span class="label"><span class="role">Conductor</span><br/>VI · The Wheel of the Orrery</span><span class="badge-mini">5</span></a></td>
+</tr>
+<tr><td class="row-head">Whole task</td>
+<td><a class="grid-cell" href="fool.html" title="Deputy"><img src="cards/card_07_fool.png" alt="The Fool of the Sextant" /><span class="label"><span class="role">Deputy</span><br/>VII · The Fool of the Sextant</span></a></td>
+<td><a class="grid-cell" href="priestess.html" title="Co-Investigator"><img src="cards/card_08_priestest.png" alt="The High Priestess of the Microscope" /><span class="label"><span class="role">Co-Investigator</span><br/>VIII · The High Priestess of the Microscope</span></a></td>
+<td><a class="grid-cell" href="hermit.html" title="Successor"><img src="cards/card_09_hermit.png" alt="The Hermit of the Telescope" /><span class="label"><span class="role">Successor</span><br/>IX · The Hermit of the Telescope</span></a></td>
+</tr>
+
+  </table>
+
+  <h3>The two axes, defined</h3>
+  <table class="matrix">
+    <tr>
+      <th style="width: 14%;">Axis</th>
+      <th>Definition</th>
+      <th>Survey signal</th>
+    </tr>
+    <tr>
+      <td><strong>Scope</strong></td>
+      <td>How much of a task the AI handles in one invocation. Narrow (a single function call) → Broad (a coherent multi-step subtask) → Whole (end-to-end goal pursuit).</td>
+      <td>Q3 (current uses) and Q10 (what would justify setup), averaged. Q1c competence (more competent → narrower) and Q2 frequency (daily → broader) modulate.</td>
+    </tr>
+    <tr>
+      <td><strong>Initiative</strong></td>
+      <td>Who proposes the next move. User-initiated (system only responds when invoked) → Mixed (either party can propose) → System-initiated (system drives, user reacts).</td>
+      <td>Q11 (top desired qualities), Q4 (current frustrations), Q10 contributions, summed. Q1c and Q2 modulate.</td>
+    </tr>
+  </table>
+
+  <h3>Honest notes on the typology</h3>
+  <ul>
+    <li>Cells <strong>I (Magician)</strong> through <strong>VI (Wheel)</strong> describe AI tools that exist in current daily research practice.</li>
+    <li>Cell <strong>VIII (Priestess)</strong> is the survey's central aspirational target — the "AI co-scientist" as currently positioned by Sakana, FutureHouse, and Google AI Co-Scientist.</li>
+    <li>Cells <strong>VII (Fool)</strong> and <strong>IX (Hermit)</strong> describe whole-task agency: VII as currently shipping autonomous-agent products (Devin, Manus); IX as mostly aspirational, requiring trust infrastructure that does not yet exist.</li>
+    <li>The typology is <em>descriptive</em>, not prescriptive — the goal is to make different positions toward AI tools legible and discussable, not to rank them.</li>
+  </ul>
+
+  <footer class="page-footer">
+    <div class="col-row">
+      <div>
+        <strong>The AI Co-Scientist Typology</strong> · Wang · Columbia DBMI<br/>
+        <a href="https://columbia.qualtrics.com/jfe/form/SV_PLACEHOLDER">take the survey</a> · <a href="https://github.com/USERNAME/REPO">source on GitHub</a>
+      </div>
+      <div style="text-align: right;">
+        Pilot data: n = 9 finished responses
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
