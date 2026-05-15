@@ -1,0 +1,338 @@
+/* ========================================================================
+   styles-neural.css  —  neural arcana
+   Additive layer over styles.css. The tarot ritual aesthetic meets a
+   terminal interface. Heavier hand than alchemy. Story: "AI altar terminal."
+
+   Adds:
+   - Marcellus SC + Space Grotesk + Spectral + Space Mono
+   - faint CRT scanlines fixed across viewport
+   - electric cyan as primary accent (vs. Columbia blue / gold)
+   - tarot double-frame on .card-image with SVG corner glyphs
+   - section h3s styled as terminal section markers
+   - badges as // monospace data callouts
+   - motto styled as a terminal status readout
+   ======================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+:root {
+  --cyan: #7be6ff;
+  --cyan-soft: #9bd9ee;
+  --cyan-deep: #1a4a5e;
+  --cyan-glow: rgba(123, 230, 255, 0.42);
+  --mono: 'Space Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --sans-tech: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif-body: 'Spectral', Georgia, 'Times New Roman', serif;
+  --display: 'Marcellus SC', 'Marcellus', Georgia, serif;
+}
+
+/* ---- Font swap --------------------------------------------------------- */
+html, body, p, li, .section p, .section li, .index-intro,
+.cta, .cta * { font-family: var(--serif-body); }
+.topnav .brand,
+h1, h2, .card-meta h2 {
+  font-family: var(--display) !important;
+  font-weight: 400;
+  font-style: normal !important;
+  letter-spacing: 0.04em;
+}
+h3, .section h3 {
+  font-family: var(--sans-tech) !important;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+}
+em, cite { font-family: var(--serif-body); font-style: italic; }
+
+/* ---- Scanlines: faint CRT terminal overlay across whole viewport ------- */
+html::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 2px,
+    rgba(123, 230, 255, 0.025) 2px 3px,
+    transparent 3px 4px
+  );
+  mix-blend-mode: screen;
+}
+
+/* ---- Constellation tracery (sparser than alchemy, cyan-tinted) --------- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='1200' viewBox='0 0 1600 1200' preserveAspectRatio='xMidYMid slice'><g fill='none' stroke='%237be6ff' stroke-width='0.5' stroke-linecap='round' opacity='0.55'><line x1='220' y1='180' x2='380' y2='240'/><line x1='380' y1='240' x2='510' y2='160'/><line x1='1080' y1='280' x2='1240' y2='200'/><line x1='1240' y1='200' x2='1360' y2='320'/><line x1='280' y1='920' x2='460' y2='840'/><line x1='1120' y1='980' x2='1300' y2='900'/></g><g fill='%237be6ff' opacity='0.7'><circle cx='220' cy='180' r='1.4'/><circle cx='380' cy='240' r='1.4'/><circle cx='510' cy='160' r='1.4'/><circle cx='1080' cy='280' r='1.4'/><circle cx='1240' cy='200' r='1.4'/><circle cx='1360' cy='320' r='1.4'/><circle cx='280' cy='920' r='1.4'/><circle cx='460' cy='840' r='1.4'/><circle cx='1120' cy='980' r='1.4'/><circle cx='1300' cy='900' r='1.4'/></g></svg>");
+}
+
+.container { position: relative; z-index: 2; }
+
+/* ---- Topnav brand: cyan terminal-flag prefix --------------------------- */
+.topnav .brand {
+  color: var(--cyan-soft);
+  text-shadow: 0 0 18px var(--cyan-glow);
+}
+.topnav .brand::before {
+  content: '▣ ';
+  color: var(--cyan);
+  font-family: var(--sans-tech);
+  font-weight: 600;
+  margin-right: 4px;
+}
+.topnav .links a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; }
+.topnav .links a:hover { color: var(--cyan); }
+
+/* ---- h1: Roman capital with cyan undercurrent -------------------------- */
+.card-meta h1 {
+  color: var(--cyan-soft);
+  text-shadow:
+    0 0 38px var(--cyan-glow),
+    0 0 8px rgba(123, 230, 255, 0.2);
+  position: relative;
+  padding-left: 18px;
+}
+.card-meta h1::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14%;
+  bottom: 14%;
+  width: 3px;
+  background: linear-gradient(180deg, transparent, var(--cyan) 30%, var(--cyan) 70%, transparent);
+  box-shadow: 0 0 12px var(--cyan-glow);
+}
+
+/* ---- Role line: terminal status banner --------------------------------- */
+.card-meta .role {
+  font-family: var(--mono) !important;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan-soft);
+  padding: 6px 12px;
+  border: 1px solid rgba(123, 230, 255, 0.25);
+  border-left: 3px solid var(--cyan);
+  background: rgba(7, 17, 43, 0.45);
+  display: inline-block;
+  margin-bottom: 18px;
+}
+.card-meta .role::before {
+  content: '▸ ';
+  color: var(--cyan);
+}
+
+/* ---- Badges: // monospace data callouts -------------------------------- */
+.badge {
+  font-family: var(--mono) !important;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 0;
+  border: 1px solid rgba(123, 230, 255, 0.32);
+  color: var(--cyan-soft);
+  background: rgba(7, 17, 43, 0.55);
+  position: relative;
+}
+.badge::before {
+  content: '// ';
+  color: var(--cyan);
+  font-weight: 700;
+  opacity: 0.8;
+}
+.badge.gold {
+  border-color: rgba(212, 178, 92, 0.55);
+  color: var(--gold);
+  background: rgba(40, 30, 5, 0.4);
+}
+.badge.gold::before { color: var(--gold); }
+
+/* ---- Tarot card frame: double rule + corner glyphs --------------------- */
+.card-image {
+  position: relative;
+  padding: 14px !important;
+  border: 1px solid var(--rule-strong) !important;
+  background: var(--bg-card) !important;
+  box-shadow:
+    inset 0 0 0 1px transparent,
+    inset 0 0 0 4px rgba(7, 17, 43, 0.8),
+    inset 0 0 0 5px rgba(123, 230, 255, 0.25),
+    0 14px 40px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(123, 230, 255, 0.15) !important;
+}
+.card-image::before,
+.card-image::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  width: 26px;
+  height: 26px;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26' fill='none' stroke='%237be6ff' stroke-width='1.2' stroke-linecap='round'><path d='M 2 8 L 2 2 L 8 2'/><circle cx='2' cy='2' r='1.2' fill='%237be6ff' stroke='none'/><line x1='2' y1='8' x2='5' y2='11'/><line x1='8' y1='2' x2='11' y2='5'/><circle cx='8' cy='8' r='0.8' fill='%23d4b25c' stroke='none'/></svg>");
+}
+.card-image::before { top: -4px; left: -4px; }
+.card-image::after {
+  top: -4px; right: -4px;
+  transform: scaleX(-1);
+}
+/* bottom corners via a wrapper trick — use the .card-meta sibling? no, use card-page-header */
+.card-page-header {
+  position: relative;
+}
+.card-page-header::before,
+.card-page-header::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  width: 26px;
+  height: 26px;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26' fill='none' stroke='%237be6ff' stroke-width='1.2' stroke-linecap='round'><path d='M 2 18 L 2 24 L 8 24'/><circle cx='2' cy='24' r='1.2' fill='%237be6ff' stroke='none'/><line x1='2' y1='18' x2='5' y2='15'/><line x1='8' y1='24' x2='11' y2='21'/><circle cx='8' cy='18' r='0.8' fill='%23d4b25c' stroke='none'/></svg>");
+}
+.card-page-header::before {
+  bottom: -4px;
+  left: -4px;
+}
+.card-page-header::after {
+  bottom: -4px;
+  left: calc(320px - 4px); /* aligns with .card-image right edge: 320 col + gap accounted */
+  transform: scaleX(-1);
+}
+@media (max-width: 720px) {
+  .card-page-header::after { display: none; }
+}
+
+/* ---- Motto: terminal status readout ------------------------------------ */
+.motto {
+  font-family: var(--serif-body);
+  font-style: italic;
+  font-size: 19px;
+  border-left: none !important;
+  padding: 12px 16px 12px 20px;
+  margin: 18px 0;
+  background:
+    linear-gradient(90deg, rgba(123, 230, 255, 0.06) 0%, transparent 60%),
+    rgba(7, 17, 43, 0.4);
+  position: relative;
+  color: var(--ink);
+}
+.motto::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--cyan), var(--gold));
+  box-shadow: 0 0 10px var(--cyan-glow);
+}
+.motto::after {
+  content: '◉ MOTTO';
+  position: absolute;
+  top: -8px;
+  left: 18px;
+  background: var(--bg-deep);
+  padding: 0 8px;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--cyan);
+}
+.motto .gloss {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 12px;
+  color: var(--cyan-soft);
+  letter-spacing: 0.04em;
+  display: block;
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
+/* ---- Section h3: terminal section markers ----------------------------- */
+.section h3 {
+  font-size: 11px !important;
+  color: var(--cyan-soft) !important;
+  position: relative;
+  padding: 6px 0 8px 22px;
+  margin-bottom: 12px !important;
+  border-bottom: 1px solid rgba(123, 230, 255, 0.18);
+}
+.section h3::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  color: var(--cyan);
+  font-family: var(--sans-tech);
+  text-shadow: 0 0 8px var(--cyan-glow);
+}
+.section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 32px;
+  height: 1px;
+  background: var(--cyan);
+  box-shadow: 0 0 6px var(--cyan-glow);
+}
+
+/* ---- Strong / em harmony ---------------------------------------------- */
+strong { color: var(--cyan-soft); }
+em { color: var(--cyan-soft); font-style: italic; }
+
+/* ---- Links inside body: cyan ----------------------------------------- */
+.container a,
+.cta a { color: var(--cyan); }
+.container a:hover,
+.cta a:hover { color: var(--cyan-soft); text-shadow: 0 0 12px var(--cyan-glow); }
+
+/* ---- CTA box: terminal panel ----------------------------------------- */
+.cta {
+  background:
+    linear-gradient(135deg, rgba(0, 62, 126, 0.32), rgba(123, 230, 255, 0.05)),
+    rgba(7, 17, 43, 0.6) !important;
+  border: 1px solid rgba(123, 230, 255, 0.28) !important;
+  border-left: 3px solid var(--cyan) !important;
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 18px 22px !important;
+  position: relative;
+}
+.cta::before {
+  content: '$ INVITE_COLLABORATOR --share';
+  position: absolute;
+  top: -8px;
+  left: 16px;
+  background: var(--bg-deep);
+  padding: 0 8px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.20em;
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+
+/* ---- Footer: terminal echo ------------------------------------------- */
+footer.page-footer {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  color: var(--ink-fine);
+  border-top: 1px solid rgba(123, 230, 255, 0.18);
+}
+footer.page-footer strong {
+  color: var(--cyan-soft);
+  font-family: var(--sans-tech);
+  letter-spacing: 0.18em;
+}
+footer.page-footer a { color: var(--cyan-soft); }

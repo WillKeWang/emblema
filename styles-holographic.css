@@ -1,0 +1,635 @@
+/* ========================================================================
+   styles-holographic.css  —  holographic occult, v2
+   Additive layer over styles.css. Story: "the tarot reading rendered as
+   a holographic oracle — sacred geometry fused with circuit traces."
+
+   v2 pushes the story harder:
+   - sacred geometry background motif (hexagram + node circuit)
+   - Roman numeral display behind the h1 (tarot card position marker)
+   - full tarot-card envelope framing the article (not just the image)
+   - holographic gradient extended to h1 / brand
+   - fused glyph ornaments (hermetic + circuit) at corners + between sections
+   - ornate section dividers between every <div class="section">
+   - pulsing star nodes + hermetic corner watermarks (kept from v1)
+   ======================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600&family=Space+Mono:ital,wght@0,400;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+:root {
+  --amethyst: #b794d8;
+  --amethyst-deep: #6e4ea3;
+  --amethyst-glow: rgba(183, 148, 216, 0.36);
+  --cyan: #7be6ff;
+  --cyan-glow: rgba(123, 230, 255, 0.38);
+  --gold-warm: #e3c47a;
+  --gold-glow: rgba(227, 196, 122, 0.38);
+  --mono: 'Space Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --sans-tech: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif-body: 'Spectral', Georgia, 'Times New Roman', serif;
+  --display: 'Marcellus SC', 'Marcellus', Georgia, serif;
+  --display-italic: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* ---- Font swap --------------------------------------------------------- */
+html, body, p, li, .section p, .section li, .index-intro,
+.cta, .cta * { font-family: var(--serif-body); }
+.topnav .brand,
+h1, h2, .card-meta h2 {
+  font-family: var(--display) !important;
+  font-weight: 400;
+  font-style: normal !important;
+  letter-spacing: 0.05em;
+}
+h3, .section h3 {
+  font-family: var(--sans-tech) !important;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+em, cite { font-family: var(--display-italic); font-style: italic; }
+
+/* ===== BACKGROUND LAYERS ================================================ */
+
+/* Sacred geometry — large faint hexagram + circuit nodes overlay.
+   Fixed, centered, low opacity. Reads as a hermetic seal that doubles
+   as a circuit board.
+*/
+html::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center 8vh;
+  background-size: min(820px, 70vw) min(820px, 70vw);
+  opacity: 0.42;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'><g fill='none' stroke='%23e3c47a' stroke-width='0.6' opacity='0.55'><circle cx='400' cy='400' r='320'/><circle cx='400' cy='400' r='240'/><circle cx='400' cy='400' r='160'/><polygon points='400,80 678,560 122,560' /><polygon points='400,720 122,240 678,240' /><line x1='80' y1='400' x2='720' y2='400'/><line x1='400' y1='80' x2='400' y2='720'/></g><g fill='%237be6ff' opacity='0.7'><circle cx='400' cy='80' r='3'/><circle cx='678' cy='240' r='3'/><circle cx='678' cy='560' r='3'/><circle cx='400' cy='720' r='3'/><circle cx='122' cy='560' r='3'/><circle cx='122' cy='240' r='3'/><circle cx='400' cy='400' r='3'/></g><g fill='%23b794d8' opacity='0.75'><circle cx='80' cy='400' r='2.5'/><circle cx='720' cy='400' r='2.5'/><circle cx='400' cy='240' r='2.5'/><circle cx='400' cy='560' r='2.5'/></g><g fill='none' stroke='%237be6ff' stroke-width='0.4' opacity='0.4' stroke-dasharray='2 3'><line x1='400' y1='80' x2='400' y2='240'/><line x1='678' y1='240' x2='400' y2='400'/><line x1='678' y1='560' x2='400' y2='400'/><line x1='400' y1='720' x2='400' y2='560'/><line x1='122' y1='560' x2='400' y2='400'/><line x1='122' y1='240' x2='400' y2='400'/></g></svg>");
+}
+
+/* Hermetic corner watermarks (kept from v1, tightened) */
+html::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'><g fill='none' stroke='%23e3c47a' stroke-width='0.6' opacity='0.30'><circle cx='110' cy='110' r='84'/><circle cx='110' cy='110' r='58'/><circle cx='110' cy='110' r='22'/></g><text x='110' y='122' text-anchor='middle' font-family='Georgia, serif' font-size='42' fill='%23e3c47a' opacity='0.40'>☉</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'><g fill='none' stroke='%23b794d8' stroke-width='0.6' opacity='0.30'><circle cx='110' cy='110' r='84'/><circle cx='110' cy='110' r='58'/></g><text x='110' y='125' text-anchor='middle' font-family='Georgia, serif' font-size='40' fill='%23b794d8' opacity='0.42'>☽</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'><g fill='none' stroke='%237be6ff' stroke-width='0.6' opacity='0.30'><circle cx='110' cy='110' r='84'/><polygon points='110,40 170,75 170,145 110,180 50,145 50,75'/></g><text x='110' y='125' text-anchor='middle' font-family='Georgia, serif' font-size='38' fill='%237be6ff' opacity='0.42'>⌬</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'><g fill='none' stroke='%23e3c47a' stroke-width='0.6' opacity='0.30'><circle cx='110' cy='110' r='84'/></g><text x='110' y='126' text-anchor='middle' font-family='Georgia, serif' font-size='44' fill='%23e3c47a' opacity='0.42'>✦</text></svg>");
+  background-position:
+    -50px -50px,
+    calc(100% + 50px) -50px,
+    -50px calc(100% + 50px),
+    calc(100% + 50px) calc(100% + 50px);
+  background-size: 220px 220px;
+}
+
+/* Pulsing bright stars */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-image:
+    radial-gradient(circle 2.5px at 14% 22%, rgba(227, 196, 122, 0.95), rgba(227, 196, 122, 0) 80%),
+    radial-gradient(circle 2.5px at 82% 18%, rgba(183, 148, 216, 0.95), rgba(183, 148, 216, 0) 80%),
+    radial-gradient(circle 2px   at 32% 68%, rgba(123, 230, 255, 0.95), rgba(123, 230, 255, 0) 80%),
+    radial-gradient(circle 2.5px at 72% 78%, rgba(227, 196, 122, 0.95), rgba(227, 196, 122, 0) 80%),
+    radial-gradient(circle 2px   at 52% 38%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 80%),
+    radial-gradient(circle 2px   at 18% 86%, rgba(183, 148, 216, 0.85), rgba(183, 148, 216, 0) 80%);
+  animation: pulse-stars 6s ease-in-out infinite;
+}
+@keyframes pulse-stars {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+.container { position: relative; z-index: 2; }
+
+/* ===== TAROT-CARD ENVELOPE ============================================== */
+/* The whole <article> sits inside an ornate, gold-bordered card. */
+article {
+  position: relative;
+  margin: 12px 0 48px;
+  padding: 56px 48px 40px;
+  background:
+    radial-gradient(ellipse at top, rgba(123, 230, 255, 0.05), transparent 60%),
+    radial-gradient(ellipse at bottom, rgba(183, 148, 216, 0.06), transparent 60%),
+    rgba(7, 17, 43, 0.55);
+  border: 1px solid rgba(227, 196, 122, 0.45);
+  box-shadow:
+    inset 0 0 0 8px rgba(7, 17, 43, 0.6),
+    inset 0 0 0 9px rgba(227, 196, 122, 0.22),
+    inset 0 0 0 10px rgba(7, 17, 43, 0.5),
+    inset 0 0 0 11px rgba(183, 148, 216, 0.16),
+    0 32px 80px rgba(0, 0, 0, 0.65),
+    0 0 90px rgba(183, 148, 216, 0.10);
+}
+/* corner sigils for the envelope — fused hermetic + circuit motif */
+article::before,
+article::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  width: 56px;
+  height: 56px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56' fill='none' stroke='%23e3c47a' stroke-width='0.9' stroke-linecap='round'><circle cx='10' cy='10' r='4.5' stroke='%23e3c47a' fill='rgba(7,17,43,0.6)'/><circle cx='10' cy='10' r='1.6' fill='%23e3c47a' stroke='none'/><path d='M 10 14.5 L 10 24'/><path d='M 14.5 10 L 24 10'/><circle cx='10' cy='24' r='1' fill='%237be6ff' stroke='none'/><circle cx='24' cy='10' r='1' fill='%237be6ff' stroke='none'/><path d='M 18 18 Q 22 14 28 14 L 36 14' stroke='%23b794d8' stroke-width='0.7'/><circle cx='36' cy='14' r='0.8' fill='%23b794d8' stroke='none'/><path d='M 18 18 Q 14 22 14 28 L 14 36' stroke='%23b794d8' stroke-width='0.7'/><circle cx='14' cy='36' r='0.8' fill='%23b794d8' stroke='none'/></svg>");
+  filter: drop-shadow(0 0 8px var(--gold-glow));
+}
+article::before { top: -18px; left: -18px; }
+article::after  { top: -18px; right: -18px; transform: scaleX(-1); }
+
+/* ===== ROMAN NUMERAL DISPLAY ============================================ */
+/* The .arcanum-numeral element (added to hermit.html) renders the tarot
+   card position number as a huge, faint, holographic backdrop behind h1.
+*/
+.arcanum-numeral {
+  position: absolute;
+  top: -16px;
+  right: 4px;
+  font-family: var(--display);
+  font-size: 110px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(227, 196, 122, 0.55) 0%, rgba(183, 148, 216, 0.40) 60%, rgba(123, 230, 255, 0.28) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  pointer-events: none;
+  opacity: 0.80;
+  filter: drop-shadow(0 0 24px rgba(183, 148, 216, 0.25));
+}
+.card-meta { position: relative; }
+.card-meta > * { position: relative; z-index: 1; }
+.arcanum-numeral { z-index: 0 !important; }
+
+/* ===== TOPNAV =========================================================== */
+.topnav { padding: 22px 0 18px !important; }
+.topnav .brand {
+  background: linear-gradient(90deg, var(--gold-warm) 0%, var(--cyan) 45%, var(--amethyst) 75%, var(--gold-warm) 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holo-shift 14s ease-in-out infinite;
+  text-shadow: none;
+  font-size: 14px !important;
+  letter-spacing: 0.22em !important;
+}
+.topnav .brand::before {
+  content: '✦  ';
+  background: none;
+  -webkit-text-fill-color: var(--gold-warm);
+  color: var(--gold-warm);
+  text-shadow: 0 0 10px var(--gold-glow);
+}
+.topnav .links a {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+.topnav .links a:hover { color: var(--amethyst); }
+@keyframes holo-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* ===== H1: iridescent display ========================================== */
+.card-meta h1 {
+  font-size: 38px !important;
+  background: linear-gradient(100deg,
+    var(--gold-warm) 0%,
+    #f4e3a8 15%,
+    var(--cyan) 38%,
+    var(--amethyst) 62%,
+    #e0c9e8 78%,
+    var(--gold-warm) 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holo-shift 18s ease-in-out infinite;
+  text-shadow: none;
+  filter: drop-shadow(0 0 22px rgba(183, 148, 216, 0.25));
+  margin-top: 28px !important;
+}
+
+/* ===== ROLE: hermetic banner =========================================== */
+.card-meta .role {
+  font-family: var(--mono) !important;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--amethyst);
+  margin-bottom: 18px;
+  padding: 4px 0;
+  display: inline-block;
+}
+.card-meta .role::before { content: '✦  '; color: var(--gold-warm); }
+.card-meta .role::after  { content: '  ✦'; color: var(--gold-warm); }
+
+/* ===== BADGES: hermetic chips ========================================== */
+.badge {
+  font-family: var(--sans-tech) !important;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(183, 148, 216, 0.45);
+  color: var(--amethyst);
+  background: rgba(183, 148, 216, 0.07);
+}
+.badge.gold {
+  border-color: rgba(227, 196, 122, 0.55);
+  color: var(--gold-warm);
+  background: rgba(227, 196, 122, 0.08);
+}
+.badge.warn {
+  border-color: rgba(228, 101, 77, 0.55);
+  color: var(--vermillion);
+  background: rgba(228, 101, 77, 0.10);
+}
+
+/* ===== CARD IMAGE: full tarot frame ==================================== */
+.card-image {
+  position: relative;
+  padding: 18px !important;
+  border: 1px solid rgba(227, 196, 122, 0.55) !important;
+  background:
+    radial-gradient(ellipse at top, rgba(123, 230, 255, 0.08), transparent 60%),
+    radial-gradient(ellipse at bottom, rgba(183, 148, 216, 0.10), transparent 60%),
+    var(--bg-card) !important;
+  box-shadow:
+    inset 0 0 0 6px rgba(7, 17, 43, 0.85),
+    inset 0 0 0 7px rgba(227, 196, 122, 0.45),
+    inset 0 0 0 8px rgba(7, 17, 43, 0.65),
+    inset 0 0 0 9px rgba(183, 148, 216, 0.22),
+    0 18px 50px rgba(0, 0, 0, 0.7),
+    0 0 70px rgba(183, 148, 216, 0.18) !important;
+}
+.card-image::before,
+.card-image::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none' stroke='%23e3c47a' stroke-width='1.1' stroke-linecap='round'><path d='M 4 18 Q 4 4 18 4'/><path d='M 8 16 Q 8 8 16 8'/><circle cx='4' cy='4' r='1.6' fill='%23e3c47a' stroke='none'/><circle cx='16' cy='8' r='0.9' fill='%237be6ff' stroke='none'/><circle cx='8' cy='16' r='0.9' fill='%23b794d8' stroke='none'/><path d='M 18 4 L 24 4 M 4 18 L 4 24' stroke='%23e3c47a' stroke-width='0.7' opacity='0.7'/></svg>");
+  filter: drop-shadow(0 0 6px var(--gold-glow));
+}
+.card-image::before { top: -12px; left: -12px; }
+.card-image::after  { top: -12px; right: -12px; transform: scaleX(-1); }
+
+/* ===== MOTTO: oracle cartouche ========================================= */
+.motto {
+  font-family: var(--display-italic);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  border-left: none !important;
+  text-align: center;
+  padding: 28px 32px 26px !important;
+  margin: 28px auto !important;
+  position: relative;
+  max-width: 90%;
+  background: linear-gradient(180deg, rgba(227, 196, 122, 0.06), transparent 70%);
+  color: var(--columbia-light);
+}
+.motto::before,
+.motto::after {
+  content: '❖';
+  position: absolute;
+  color: var(--gold-warm);
+  font-size: 13px;
+  opacity: 0.8;
+  text-shadow: 0 0 10px var(--gold-glow);
+}
+.motto::before { top: 8px;    left: 50%; transform: translateX(-50%); }
+.motto::after  { bottom: 8px; left: 50%; transform: translateX(-50%); }
+.motto .gloss {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--amethyst);
+  display: block;
+  margin-top: 10px;
+  opacity: 0.85;
+}
+
+/* ===== SECTION DIVIDERS + H3 =========================================== */
+.section { position: relative; padding-top: 18px; }
+.section + .section::before {
+  /* an ornate gold rule between consecutive sections */
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 10%;
+  right: 10%;
+  height: 14px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 14' fill='none' preserveAspectRatio='none'><line x1='0' y1='7' x2='260' y2='7' stroke='%23e3c47a' stroke-width='0.6' opacity='0.55'/><line x1='340' y1='7' x2='600' y2='7' stroke='%23e3c47a' stroke-width='0.6' opacity='0.55'/><circle cx='300' cy='7' r='3.5' fill='none' stroke='%23e3c47a' stroke-width='0.7' opacity='0.7'/><circle cx='300' cy='7' r='1.4' fill='%237be6ff' opacity='0.85'/><circle cx='270' cy='7' r='0.8' fill='%23b794d8'/><circle cx='330' cy='7' r='0.8' fill='%23b794d8'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 14px;
+  pointer-events: none;
+}
+.section h3 {
+  font-size: 11px !important;
+  color: var(--gold-warm) !important;
+  position: relative;
+  text-align: center;
+  padding: 12px 0;
+  margin: 16px 0 16px !important;
+}
+.section h3::before,
+.section h3::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(227, 196, 122, 0.55), rgba(183, 148, 216, 0.42));
+}
+.section h3::before { left: 0; }
+.section h3::after  {
+  right: 0;
+  background: linear-gradient(90deg, rgba(183, 148, 216, 0.42), rgba(227, 196, 122, 0.55), transparent);
+}
+
+/* ===== STRONG / EM / LINKS ============================================= */
+strong { color: var(--amethyst); font-weight: 600; }
+em     { color: var(--cyan); font-style: italic; }
+.container a, .cta a { color: var(--amethyst); }
+.container a:hover,
+.cta a:hover { color: var(--cyan); text-shadow: 0 0 12px var(--cyan-glow); }
+
+/* ===== CTA ============================================================= */
+.cta {
+  background:
+    radial-gradient(ellipse at center, rgba(183, 148, 216, 0.12), transparent 70%),
+    rgba(7, 17, 43, 0.55) !important;
+  border: 1px solid rgba(183, 148, 216, 0.35) !important;
+  padding: 24px 28px !important;
+  text-align: center;
+  font-size: 14px;
+  position: relative;
+  margin-top: 36px !important;
+}
+.cta::before {
+  content: '⌬   INVITATION   ⌬';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(7, 17, 43, 0.95);
+  padding: 0 16px;
+  font-family: var(--sans-tech);
+  font-size: 9px;
+  letter-spacing: 0.40em;
+  font-weight: 600;
+  color: var(--amethyst);
+  text-transform: uppercase;
+}
+
+/* ===== FOOTER ========================================================== */
+footer.page-footer {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--ink-fine);
+  border-top: 1px solid rgba(227, 196, 122, 0.22);
+  padding-top: 24px !important;
+  margin-top: 48px !important;
+  position: relative;
+}
+footer.page-footer::before {
+  content: '✦';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-deep);
+  padding: 0 12px;
+  color: var(--gold-warm);
+  font-size: 14px;
+  text-shadow: 0 0 10px var(--gold-glow);
+}
+footer.page-footer strong {
+  color: var(--gold-warm);
+  font-family: var(--sans-tech);
+  letter-spacing: 0.20em;
+}
+footer.page-footer a { color: var(--amethyst); }
+
+/* ========================================================================
+   INDEX PAGE
+   The index has no <article>; the 9-card grid is the centerpiece. Apply
+   the envelope styling to <article> when present (we'll wrap the index
+   content in one), give the grid generous breathing room, frame each
+   grid-cell as a mini tarot card.
+   ======================================================================== */
+
+/* Top-level h1 (index hero) — iridescent gradient like the card h1 */
+.container > h1,
+article > h1 {
+  background: linear-gradient(100deg,
+    var(--gold-warm) 0%,
+    #f4e3a8 15%,
+    var(--cyan) 38%,
+    var(--amethyst) 62%,
+    #e0c9e8 78%,
+    var(--gold-warm) 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holo-shift 18s ease-in-out infinite;
+  text-shadow: none;
+  filter: drop-shadow(0 0 22px rgba(183, 148, 216, 0.22));
+}
+
+/* The "A typology in nine" ornament line — gold flourish */
+.ornament {
+  color: var(--gold-warm);
+  font-family: var(--sans-tech);
+  letter-spacing: 0.40em;
+  font-size: 11px;
+}
+.ornament::before,
+.ornament::after {
+  background: linear-gradient(90deg, transparent, rgba(227, 196, 122, 0.55), rgba(183, 148, 216, 0.4), transparent);
+}
+
+/* Index intro paragraph — Cormorant italic, larger */
+.index-intro {
+  font-family: var(--display-italic) !important;
+  font-style: italic !important;
+  font-size: 18px !important;
+  color: var(--columbia-light) !important;
+  letter-spacing: 0.01em;
+}
+
+/* ----- the 9-card grid: breathing room + mini tarot framing ----- */
+.grid-table {
+  border-spacing: 22px 24px !important;
+  border-collapse: separate !important;
+  margin: 36px -22px !important;
+}
+.grid-table .col-head,
+.grid-table .row-head {
+  font-family: var(--sans-tech) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.24em !important;
+  color: var(--gold-warm) !important;
+  font-weight: 600 !important;
+  padding-bottom: 6px !important;
+}
+.grid-table .row-head {
+  padding: 0 18px 0 0 !important;
+  text-align: right;
+}
+
+/* each grid-cell becomes a mini tarot card */
+.grid-cell {
+  margin: 0 !important;
+  border: 1px solid rgba(227, 196, 122, 0.45) !important;
+  background:
+    radial-gradient(ellipse at top, rgba(123, 230, 255, 0.05), transparent 60%),
+    var(--bg-card) !important;
+  box-shadow:
+    inset 0 0 0 3px rgba(7, 17, 43, 0.7),
+    inset 0 0 0 4px rgba(183, 148, 216, 0.20),
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 36px rgba(183, 148, 216, 0.10) !important;
+  transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.25s !important;
+  padding: 4px !important;
+}
+.grid-cell:hover {
+  transform: translateY(-6px) !important;
+  border-color: var(--gold-warm) !important;
+  box-shadow:
+    inset 0 0 0 3px rgba(7, 17, 43, 0.7),
+    inset 0 0 0 4px rgba(227, 196, 122, 0.35),
+    0 18px 44px rgba(0, 0, 0, 0.7),
+    0 0 60px rgba(183, 148, 216, 0.30),
+    0 0 90px rgba(123, 230, 255, 0.15) !important;
+}
+.grid-cell::after {
+  background: linear-gradient(180deg, rgba(227, 196, 122, 0.06) 0%, transparent 30%, transparent 60%, rgba(4, 7, 26, 0.7) 100%) !important;
+}
+/* tiny corner ornament on each grid cell */
+.grid-cell::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none' stroke='%23e3c47a' stroke-width='0.9' stroke-linecap='round'><circle cx='6' cy='6' r='3' stroke='%23e3c47a' fill='rgba(7,17,43,0.7)'/><circle cx='6' cy='6' r='1.1' fill='%23e3c47a' stroke='none'/><path d='M 6 9 L 6 16'/><path d='M 9 6 L 16 6'/><circle cx='6' cy='16' r='0.8' fill='%237be6ff' stroke='none'/><circle cx='16' cy='6' r='0.8' fill='%237be6ff' stroke='none'/></svg>");
+  filter: drop-shadow(0 0 4px var(--gold-glow));
+  z-index: 3;
+  pointer-events: none;
+}
+.grid-cell .label {
+  background: linear-gradient(180deg, rgba(7, 17, 43, 0) 0%, rgba(4, 7, 26, 0.95) 55%) !important;
+  font-family: var(--display-italic) !important;
+  font-size: 13px !important;
+  font-style: italic;
+  color: var(--columbia-light) !important;
+  padding: 22px 10px 12px !important;
+}
+.grid-cell .label .role {
+  font-family: var(--sans-tech) !important;
+  font-size: 9px !important;
+  letter-spacing: 0.20em !important;
+  color: var(--gold-warm) !important;
+  font-weight: 600 !important;
+}
+
+/* ----- matrix table: ornate hermetic ----- */
+.matrix {
+  background: rgba(7, 17, 43, 0.55) !important;
+  border: 1px solid rgba(227, 196, 122, 0.30) !important;
+}
+.matrix th, .matrix td {
+  border: 1px solid rgba(183, 148, 216, 0.18) !important;
+  color: var(--ink) !important;
+}
+.matrix th {
+  background: rgba(227, 196, 122, 0.08) !important;
+  color: var(--gold-warm) !important;
+  font-family: var(--sans-tech) !important;
+  font-style: normal !important;
+  letter-spacing: 0.20em !important;
+}
+
+/* the standalone h3s on the index ("The two axes, defined" etc.) — center
+   them with twin rules just like .section h3 */
+.container > h3,
+article > h3 {
+  font-family: var(--sans-tech) !important;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 11px !important;
+  color: var(--gold-warm) !important;
+  position: relative;
+  text-align: center;
+  padding: 12px 0;
+  margin: 36px 0 16px !important;
+}
+.container > h3::before,
+.container > h3::after,
+article > h3::before,
+article > h3::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+}
+.container > h3::before,
+article > h3::before {
+  left: 0;
+  background: linear-gradient(90deg, transparent, rgba(227, 196, 122, 0.55), rgba(183, 148, 216, 0.42));
+}
+.container > h3::after,
+article > h3::after {
+  right: 0;
+  background: linear-gradient(90deg, rgba(183, 148, 216, 0.42), rgba(227, 196, 122, 0.55), transparent);
+}
+
+/* "Honest notes" ul on the index gets a touch of breathing room */
+.container > ul,
+article > ul {
+  background: rgba(7, 17, 43, 0.35);
+  border-left: 2px solid rgba(227, 196, 122, 0.4);
+  padding: 14px 14px 14px 32px !important;
+  margin: 14px 0 28px !important;
+}
+.container > ul li::marker,
+article > ul li::marker { color: var(--gold-warm); }
+
+/* ===== REDUCED MOTION ================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .topnav .brand,
+  .card-meta h1,
+  .container > h1,
+  article > h1,
+  body::after { animation: none !important; }
+}
