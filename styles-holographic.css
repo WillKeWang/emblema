@@ -264,6 +264,7 @@ article::after  { top: -18px; right: -18px; transform: scaleX(-1); }
 /* ===== CARD IMAGE: full tarot frame ==================================== */
 .card-image {
   position: relative;
+  z-index: 2;
   padding: 18px !important;
   border: 1px solid rgba(227, 196, 122, 0.55) !important;
   background:
@@ -347,6 +348,7 @@ article::after  { top: -18px; right: -18px; transform: scaleX(-1); }
   pointer-events: none;
 }
 .section h3 {
+  display: flow-root;
   font-size: 11px !important;
   color: var(--gold-warm) !important;
   position: relative;

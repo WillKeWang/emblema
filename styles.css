@@ -246,14 +246,16 @@ strong { color: var(--columbia-light); font-weight: 600; }
 
 /* card detail pages */
 .card-page-header {
-  display: grid; grid-template-columns: 320px 1fr; gap: 40px;
-  margin-bottom: 32px; align-items: start;
+  display: flow-root;
+  margin-bottom: 32px;
 }
 @media (max-width: 720px) {
-  .card-page-header { grid-template-columns: 1fr; }
-  .card-image { max-width: 320px; margin: 0 auto 24px; }
+  .card-image { float: none; width: auto; max-width: 320px; margin: 0 auto 24px; }
 }
 .card-image {
+  float: left;
+  width: 320px;
+  margin: 0 40px 20px 0;
   border: 1px solid var(--rule-strong);
   background: var(--bg-card);
   padding: 10px;
