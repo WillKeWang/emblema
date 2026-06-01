@@ -38,7 +38,12 @@
         <div class="motto">"Sponte sua, ad horam" <span class="gloss">— "Of itself, at the appointed hour."</span></div>
         <div class="section">
           <h3>What kind of AI agent</h3>
-          <p>You want broad subtasks to run on the system's own schedule — without prompting, on a cron, on every commit — surfacing reports and flagging anomalies as they occur. The combination of <em>broad</em> scope and <em>system-initiative</em> means you trust the system to act phase-wide on cycles you've configured, with you reviewing the surfaced output rather than driving each run. The pragmatic recommendation today is <strong>pipelines and continuous agents</strong> — CI bots that run the test suite and summarize after every commit, scheduled experiment runners that surface reports, drift-detection pipelines that re-run the eval set on new data, automated dataset validators. The discipline is the kill switch: the system declares its schedule, you hold the pause/resume.</p>
+          
+          <p>The Wheel turns slowly. Its power comes from repetition and rhythm — some things don't need to be remembered each time, they just need to happen on schedule.</p>
+          <p>You may have already set up automated flows: every time new data arrives, the validation script runs automatically, outliers get flagged, a results summary is generated, and you open your dashboard in the morning to see what happened overnight. You might have a system that compiles relevant new papers each week, sorted by your research direction, so the useful entries reach you without you going looking. When an experiment finishes, you don't wait at the screen — the system notifies you once results are stable, with a comparison against the historical baseline. You're in the process, but you don't need to be in every step.</p>
+          <p>Behind this is often a mature sense of how to allocate attention. The things that need regular checking, regular tracking, regular updating — if you have to rely on remembering to do them each time, they will eventually get missed in a busy stretch. You'd rather fix these into a system, let them happen on schedule, and free your attention for the things that actually require judgment and decision.</p>
+          <p>But precisely for that reason, your standards for the system are higher than most. You can accept it running long-term, as long as it stays pointed in the right direction. The thing that worries you most isn't the occasional error — it's a pipeline that looks smooth while quietly drifting off target, then amplifying that drift. You tend to read process from results, infer mechanism from anomaly, and so you keep one final check when the system delivers conclusions. That caution usually comes from solid judgment. For you, automation worth trusting has always needed to hold up under a backward look.</p>
+        
         </div>
       </div>
     </div>
@@ -48,14 +53,10 @@
       <p>The Wheel of Fortune turns by itself; we ride. The card is about <em>cyclical, system-driven action</em> — not random fortune in the modern sense but the older <em>fortuna</em>, the patterned recurrence of work. Things happen on the Wheel's schedule, not yours.</p>
     </div>
 
+
     <div class="section">
       <h3>The scientific instrument</h3>
       <p>The orrery — a mechanical model of the solar system, driven by clockwork, running continuously and cyclically. The orrery is the canonical instrument of scheduled astronomy — used in 18th-century education and prediction. Its gears do not measure once; they <em>keep measuring</em>.</p>
-    </div>
-
-    <div class="section">
-      <h3>Real-world examples</h3>
-      <ul><li>CI bots that run the test suite and write a summary comment after every commit.</li><li>Scheduled experiment runners that surface reports on a cron.</li><li>Drift-detection pipelines that re-run the eval set on new data.</li><li>Automated dataset validators; recurring reproducibility checks.</li></ul>
     </div>
 
     <div class="section">
@@ -66,11 +67,6 @@
     <div class="section">
       <h3>Signature failure mode</h3>
       <p><strong>Takes broad action you didn't sanction.</strong> If the phase scope drifts (new data, new code), the Conductor runs the wrong phase to completion before you notice. Cycles assume their inputs; when inputs change quietly, the output is silently wrong.</p>
-    </div>
-
-    <div class="section">
-      <h3>Philosophical commitment</h3>
-      <p>Hutchins' <em>distributed cognition</em> (<cite>Cognition in the Wild</cite>, 1995): the cognitive system extends beyond any one agent, and the Wheel is the part of the system that <em>remembers</em> on your behalf. Norbert Wiener's cybernetic <em>feedback loop</em> sits behind — the broad task as a controlled cycle with the human as supervisor.</p>
     </div>
 
     <div class="section">

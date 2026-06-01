@@ -38,7 +38,12 @@
         <div class="motto">"Quod deviat, signo" <span class="gloss">— "What deviates, I mark."</span></div>
         <div class="section">
           <h3>What kind of AI agent</h3>
-          <p>You want AI to run continuously alongside your work and surface small errors as they appear — without being asked, and silent when things are right. The combination of <em>narrow</em> scope and <em>system-initiative</em> means you trust the system to flag concrete issues at the operation level, and you tolerate it being quiet otherwise. The pragmatic recommendation today is <strong>continuous validators</strong> — linters (ruff, eslint), type-checkers (mypy, ts), spell-checkers, security scanners running on save, real-time syntax highlighting, drift detectors on incoming data. The discipline is signal-to-noise: the system defaults to silence and breaks it only with high confidence in the deviation.</p>
+          
+          <p>Justice sits quietly. She doesn't do the work for you, and she doesn't keep talking. She speaks only when she finds a deviation — to point out where you need to look back.</p>
+          <p>You might run ruff in VS Code, so it flags problems as they appear. You might also want a system that automatically checks after each experiment run whether the results have drifted from the historical baseline; that looks for distribution shift when a new batch of data arrives; that confirms before you commit that the handling logic for key variables hasn't changed unexpectedly. You don't need to go looking. You just need it to tell you when something's wrong.</p>
+          <p>Behind this is usually a kind of protection for working memory. It's not that you want AI to think for you — it's that your attention is limited, and you don't want to spend your main effort repeatedly scanning low-level details: type errors in code, whether experiment outputs contain unexpected values, whether a data pipeline has quietly introduced new missing entries. These things matter, but they're not worth occupying your mind. You're willing to let the system watch them so you can keep your attention on the parts that actually require judgment.</p>
+          <p>So when AI proactively catches a problem you didn't notice, you find it valuable. But your standard for alerts is high. A good system should be quiet most of the time and only speak when it has genuinely found something wrong. Too few alerts and there's no point; too many and it becomes noise. Justice's strength comes from restraint, not from speaking often.</p>
+        
         </div>
       </div>
     </div>
@@ -48,14 +53,10 @@
       <p>Justice sits frontally with scales and sword, watchful and impersonal. She is the card of discriminating attention — what is true, what deviant, what must be marked. Justice does not punish; she <em>flags</em>.</p>
     </div>
 
+
     <div class="section">
       <h3>The scientific instrument</h3>
       <p>The plumb-line — a weighted cord defining true vertical, used in surveying, geodesy, and gravity science. Eratosthenes used analogous measurements to calculate Earth's circumference. The plumb is a passive <em>reference</em>: it does not measure, it discloses what aligns and what doesn't.</p>
-    </div>
-
-    <div class="section">
-      <h3>Real-world examples</h3>
-      <ul><li>Linters (ruff, eslint), type-checkers (mypy, ts), spell-checkers, real-time syntax validators.</li><li>Security scanners running on save.</li><li>Drift-detection on incoming data; pre-commit hooks; CI checks that surface deltas.</li></ul>
     </div>
 
     <div class="section">
@@ -66,11 +67,6 @@
     <div class="section">
       <h3>Signature failure mode</h3>
       <p><strong>Alert fatigue.</strong> The Inspector's true positives get drowned by false ones; eventually the user stops reading the squiggles and a real error slips through. Alert fatigue is the Sentinel's failure mode in miniature.</p>
-    </div>
-
-    <div class="section">
-      <h3>Philosophical commitment</h3>
-      <p>Heidegger's <em>vorhanden</em> — the tool that <em>stops withdrawing</em> the moment something is wrong, becoming visibly present at the breakdown (<cite>Being and Time</cite>, §16). The Inspector is the operationalization of breakdown-as-feature: it makes the wrong thing visible exactly because everything else withdraws into the background.</p>
     </div>
 
     <div class="section">
