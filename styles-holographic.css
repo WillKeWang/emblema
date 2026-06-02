@@ -46,7 +46,7 @@ h3, .section h3 {
   letter-spacing: 0.24em;
   text-transform: uppercase;
 }
-em, cite { font-family: var(--display-italic); font-style: italic; }
+cite { font-family: var(--display-italic); font-style: italic; }
 
 /* ===== BACKGROUND LAYERS ================================================ */
 
@@ -168,7 +168,7 @@ article::after  { top: -18px; right: -18px; transform: scaleX(-1); }
   opacity: 0.80;
   filter: drop-shadow(0 0 24px rgba(183, 148, 216, 0.25));
 }
-.card-meta { position: relative; }
+.card-meta { position: relative; display: flow-root; }
 .card-meta > * { position: relative; z-index: 1; }
 .arcanum-numeral { z-index: 0 !important; }
 
@@ -330,6 +330,7 @@ article::after  { top: -18px; right: -18px; transform: scaleX(-1); }
   display: block;
   margin-top: 10px;
   opacity: 0.85;
+  text-align: center;
 }
 
 /* ===== SECTION DIVIDERS + H3 =========================================== */
@@ -349,7 +350,7 @@ article::after  { top: -18px; right: -18px; transform: scaleX(-1); }
 }
 .section h3 {
   display: flow-root;
-  font-size: 11px !important;
+  font-size: 13px !important;
   color: var(--gold-warm) !important;
   position: relative;
   text-align: center;
@@ -373,7 +374,7 @@ article::after  { top: -18px; right: -18px; transform: scaleX(-1); }
 
 /* ===== STRONG / EM / LINKS ============================================= */
 strong { color: var(--amethyst); font-weight: 600; }
-em     { color: var(--cyan); font-style: italic; }
+em     { color: var(--cyan); font-style: italic; font-weight: 400; font-size: inherit; }
 .container a, .cta a { color: var(--amethyst); }
 .container a:hover,
 .cta a:hover { color: var(--cyan); text-shadow: 0 0 12px var(--cyan-glow); }
