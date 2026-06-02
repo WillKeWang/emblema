@@ -205,7 +205,7 @@ article::after  { top: -18px; right: -18px; transform: scaleX(-1); }
 
 /* ===== H1: iridescent display ========================================== */
 .card-meta h1 {
-  font-size: 38px !important;
+  font-size: 52px !important;
   background: linear-gradient(100deg,
     var(--gold-warm) 0%,
     #f4e3a8 15%,
@@ -220,14 +220,14 @@ article::after  { top: -18px; right: -18px; transform: scaleX(-1); }
   animation: holo-shift 18s ease-in-out infinite;
   text-shadow: none;
   filter: drop-shadow(0 0 22px rgba(183, 148, 216, 0.25));
-  margin-top: 28px !important;
+  margin-top: 0 !important;
 }
 
 /* ===== ROLE: hermetic banner =========================================== */
 .card-meta .role {
   font-family: var(--mono) !important;
-  font-size: 11px;
-  letter-spacing: 0.24em;
+  font-size: 14px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--amethyst);
   margin-bottom: 18px;
